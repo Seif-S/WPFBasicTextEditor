@@ -1,0 +1,30 @@
+﻿<Window x:Class="ceddit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ceddit"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        AllowsTransparency="True">
+    <Grid>
+        <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="651,7,0,0" VerticalAlignment="Top" Click="saveButtonClick"/>
+        <Button x:Name="loadButton" Content="Load" HorizontalAlignment="Left" Margin="616,7,0,0" VerticalAlignment="Top" Click="loadButtonClick"/>
+        <Button x:Name="closeButton" Content="X" Margin="0,0" VerticalAlignment="Top" Click="closeWindow" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0"/>
+        <Button x:Name="fullScreenButton" Content="H" Margin="30,0"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0"/>
+        <Button x:Name="hideButton" Content="_" Margin="60,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0"/>
+        <TabControl x:Name="fileTabControl" Margin="0,35,0,0">
+            <TabItem Header="Untitled" Name="mainTab">
+                <RichTextBox x:Name="pageContent">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text=""/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </TabItem>
+        </TabControl>
+        <Image Source="/Images/notePad.png" Stretch="Fill" Width="25" Height="25" Margin="0,0,770,420" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
