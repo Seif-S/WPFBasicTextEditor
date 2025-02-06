@@ -9,12 +9,25 @@
         WindowStyle="None"
         AllowsTransparency="True">
     <Grid>
-        <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="651,7,0,0" VerticalAlignment="Top" Click="saveButtonClick"/>
-        <Button x:Name="loadButton" Content="Load" HorizontalAlignment="Left" Margin="616,7,0,0" VerticalAlignment="Top" Click="loadButtonClick"/>
-        <Button x:Name="closeButton" Content="X" Margin="0,0" VerticalAlignment="Top" Click="closeWindow" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0"/>
-        <Button x:Name="fullScreenButton" Content="H" Margin="30,0"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0"/>
-        <Button x:Name="hideButton" Content="_" Margin="60,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30" Height="30" BorderThickness="0"/>
-        <TabControl x:Name="fileTabControl" Margin="0,35,0,0">
+        <Button x:Name="fullScreenButton" Content="H" Margin="0,0,35,0"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="35" Height="35" BorderThickness="0"/>
+        <Button x:Name="hideButton" Content="_" Margin="0,0,70,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="35" Height="35" BorderThickness="0"/>
+        <Button x:Name="closeButton" Content="X" Margin="0,0" VerticalAlignment="Top" Click="closeWindow" HorizontalAlignment="Right" Width="35" Height="35" BorderThickness="0"/>
+
+        <Menu Margin="0,35,0,0">
+            <MenuItem Header="File">
+                <MenuItem Header="New" Click="newFile"/>
+                <MenuItem Header="Open" Click="openFile"/>
+                <MenuItem Header="Save"/>
+                <MenuItem Header="Save As" Click="saveAsFile"/>
+                <MenuItem Header="Close"/>
+            </MenuItem>
+            <MenuItem Header="Edit" Height="21" Width="37">
+                <MenuItem Header="Cut" />
+                <MenuItem Header="Copy" />
+                <MenuItem Header="Paste" />
+            </MenuItem>
+        </Menu>
+        <TabControl x:Name="fileTabControl" Margin="0,56,0,0">
             <TabItem Header="Untitled" Name="mainTab">
                 <RichTextBox x:Name="pageContent">
                     <FlowDocument>

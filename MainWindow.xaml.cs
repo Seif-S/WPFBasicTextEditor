@@ -26,12 +26,12 @@ namespace ceddit
             InitializeComponent();
         }
 
-        public void closeWindow(object sender, RoutedEventArgs e)
+        private void closeWindow(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void saveButtonClick(object sender, RoutedEventArgs e)
+        private void saveAsFile(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "CSharp file|*.cs|C++ file|*.cpp";
@@ -48,7 +48,7 @@ namespace ceddit
 
         }
 
-        private void loadButtonClick(object sender, RoutedEventArgs e)
+        private void openFile(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "CSharp file|*.cs|C++ file|*.cpp";
@@ -67,7 +67,7 @@ namespace ceddit
                 }
                 else
                 {
-                    newPageContent = createTab(fileName);
+                    newPageContent = newTab(fileName);
                 }
                 TextRange range = new TextRange(newPageContent.Document.ContentStart, newPageContent.Document.ContentEnd);
                 FileStream file = new FileStream(openFileDialog.FileName, FileMode.Open);
@@ -76,7 +76,12 @@ namespace ceddit
             }
         }
 
-        public RichTextBox createTab(string fileName)
+        private void newFile(object sender, RoutedEventArgs e)
+        {
+            newTab("Untitled");
+        }
+
+        private RichTextBox newTab(string? fileName)
         {
             TabItem tabItem = new TabItem();
             tabItem.Header = $"{fileName}";
@@ -85,6 +90,11 @@ namespace ceddit
             tabItem.Content = richTextBox;
             fileTabControl.Items.Add(tabItem);
             return richTextBox;
+        }
+
+        public void saveAllFiles()
+        {
+
         }
     }
 }
