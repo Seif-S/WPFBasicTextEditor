@@ -39,6 +39,6 @@
             </TabItem>
         </TabControl>
         <Image Source="/Images/notePad.png" Stretch="Fill" Width="25" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,5"/>
-        <Border BorderBrush="Transparent"  BorderThickness="1" Margin="0,0,0,415" MouseMove="MoveWindow"/>
+        <Border BorderBrush="Transparent"  BorderThickness="1" Margin="0,0,105,415" PreviewMouseDown="MoveWindow" Background="Transparent"/>
     </Grid>
 </Window>

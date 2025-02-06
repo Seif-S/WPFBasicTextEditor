@@ -97,12 +97,17 @@ namespace ceddit
 
         }
 
-        private void MoveWindow(object sender, MouseEventArgs e)
+        private void MoveWindow(object sender, RoutedEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if(Application.Current.MainWindow.WindowState == WindowState.Maximized)
             {
-                this.DragMove();
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+                double windowWidth = this.Width;
+                var curPos = Mouse.GetPosition(this);
+                this.Top = 0;
+                this.Left = curPos.X - (windowWidth / 2);
             }
+            this.DragMove();
         }
 
         private void MaximizeWindow(object sender, RoutedEventArgs e)
