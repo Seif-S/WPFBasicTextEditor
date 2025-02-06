@@ -96,5 +96,43 @@ namespace ceddit
         {
 
         }
+
+        private void MoveWindow(object sender, RoutedEventArgs e)
+        {
+            if(Application.Current.MainWindow.WindowState == WindowState.Maximized)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+                double windowWidth = this.Width;
+                var curPos = Mouse.GetPosition(this);
+                this.Top = 0;
+                this.Left = curPos.X - (windowWidth / 2);
+            }
+            this.DragMove();
+        }
+
+        private void MaximizeWindow(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow.WindowState == WindowState.Maximized)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+                BorderThickness = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
+            }
+        }
+
+        private void MinimizeWindow(object sender, RoutedEventArgs e)
+        {
+            if(Application.Current.MainWindow.WindowState == WindowState.Minimized)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Minimized;
+            }
+        }
     }
 }
